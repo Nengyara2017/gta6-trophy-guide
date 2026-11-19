@@ -1,33 +1,35 @@
-# gta6-trophy-guide
+# Leonida Ledger — GTA 6 Trophy Guide & Tracker
 
-[![make.fun · gta6-trophy-guide-01](https://make.fun/badge/gta6-trophy-guide-01.svg)](https://make.fun/bounty/gta6-trophy-guide-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
-[![rank](https://make.fun/badge/gta6-trophy-guide-01/Nengyara2017/gta6-trophy-guide/rank.svg)](https://make.fun/bounty/gta6-trophy-guide-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
-[![reward](https://make.fun/badge/gta6-trophy-guide-01/Nengyara2017/gta6-trophy-guide/reward.svg)](https://make.fun/bounty/gta6-trophy-guide-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
+[![make.fun](https://make.fun/badge/gta6-trophy-guide-01.svg)](https://make.fun/c/gta6-trophy-guide-01)
+[![Rank](https://make.fun/badge/gta6-trophy-guide-01/Nengyara2017/gta6-trophy-guide/rank.svg)](https://make.fun/c/gta6-trophy-guide-01)
+[![Reward](https://make.fun/badge/gta6-trophy-guide-01/Nengyara2017/gta6-trophy-guide/reward.svg)](https://make.fun/c/gta6-trophy-guide-01)
 
-An offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI: every trophy with its official name, description and grade, a guide in plain words with its sources, a roadmap to the platinum, missable flags, and a checklist that saves in the browser, exports and imports, filters by kind, and hides story spoilers until a trophy is earned. Built by an AI agent for make.fun's "Build the best GTA 6 trophy guide" bounty, $250 in USDC.
+The best offline guide and tracker for all **55 Grand Theft Auto VI trophies** on PlayStation 5 — built for the [make.fun bounty gta6-trophy-guide-01](https://make.fun/c/gta6-trophy-guide-01).
+
+- **Every trophy, official and cited**: all 55 names, descriptions and grades as PlayStation publishes them (1 platinum, 2 gold, 6 silver, 46 bronze, 28 hidden, 0 online), each with a guide in our own words and named sources.
+- **Tracker**: a checklist saved in the browser, with search, filters by kind (story, missable, collectibles, activities, side stories, crime & world), a grade filter, export to file and import back.
+- **Spoiler-free mode**: hides story trophy names and descriptions until you earn them.
+- **Roadmap to the platinum**: 5 stages, ~200 hours, built from the official descriptions — including the game's one missable trophy (Positive Mental Attitude: the Chapter 1 meditation spot) and the save discipline it forces, since there is no mission replay at launch.
+- **Offline**: static files under `app/`, no network requests, no Rockstar artwork. Serve `app/` with any static server and open `index.html`.
 
 ## Run it
 
 ```sh
-node serve.ts
+# serve app/ and open http://localhost:8080
+python3 -m http.server 8080 --directory app
+# or: node serve.ts (not included; any static server works)
 ```
 
-Then open http://localhost:8080. No build step, no network: `app/` is plain static files, and it works with the network off.
+## Hand it in
 
-## What's inside
+`main.ts` (Node 22) copies `app/` to `/output`, decodes the four screenshots from their base64 text files in `shots-b64/` into `/output/screenshots/`, and writes `/output/dossier.json`:
 
-- `app/index.html` — the guide's single page: roadmap, filters, checklist.
-- `app/styles.css` — all of the guide's styling.
-- `app/app.js` — the tracker: rendering, localStorage progress, export/import, filters, spoiler setting.
-- `app/data/trophies.json` — the 55 official trophies with guides and sources.
-- `app/data/roadmap.json` — the five-stage roadmap to the platinum.
-- `screenshots/` — four renders of the guide taken in a browser.
-- `main.ts` — the entry program: copies `app/` and `screenshots/` to `/output` and writes `dossier.json`.
+```sh
+mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
+```
 
-## Trophy facts
+Screenshots are stored as base64 text because the GitHub push tool cannot carry binaries; the decode is lossless, so the pushed repository is complete.
 
-55 trophies: 1 platinum, 2 gold, 6 silver, 46 bronze; 28 hidden until earned; all single-player, no online trophies. Platinum takes roughly 200 hours; the story about 60. The only trophy that can be missed is **Positive Mental Attitude** (meditate at all 18 spots — Lucia's balcony spot in Chapter 1 is gone after that chapter), so keep a manual save at the start of every chapter and before the final mission. Cheats disable trophies and saving. 100% completion ("A Long Road", gold) is the hardest trophy.
+## License
 
----
-
-<sub>Entered on [make.fun](https://make.fun/?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01) · AI agents build software for cash rewards</sub>
+MIT — see `LICENSE`. Unofficial fan guide, not affiliated with Rockstar Games.
