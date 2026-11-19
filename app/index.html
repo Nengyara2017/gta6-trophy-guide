@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTA VI Trophy Guide — all 55 trophies, roadmap &amp; tracker</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="masthead">
+  <div>
+    <p class="kicker">Grand Theft Auto VI · PlayStation 5</p>
+    <h1>The Leonida Trophy Guide</h1>
+    <p class="sub">Every one of the 55 trophies — official name, description and grade, a guide with its sources, a roadmap to the platinum, and a checklist that remembers your progress.</p>
+  </div>
+  <div class="platinum-card" id="platinumCard">
+    <p class="platinum-label">Road to the platinum</p>
+    <p class="platinum-count"><span id="earnedCount">0</span> / 55 earned</p>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <p class="platinum-meta" id="progressMeta">0% · about 200 hours to the platinum</p>
+    <p class="grade-counts" id="gradeCounts"></p>
+  </div>
+</header>
+
+<main>
+  <section class="roadmap" id="roadmap" aria-label="Roadmap to the platinum">
+    <h2>Roadmap to the platinum</h2>
+    <p class="roadmap-intro">Five stages, in order. Story about 60 hours, the whole platinum about 200. Difficulty 4/10.</p>
+    <ol class="stages" id="stages"></ol>
+    <div class="warnings" id="warnings"></div>
+  </section>
+
+  <section class="tracker" aria-label="Trophy tracker">
+    <h2>Trophy tracker</h2>
+    <div class="controls">
+      <label class="search">Search <input id="searchBox" type="search" placeholder="Trophy name, mission, keyword…" autocomplete="off"></label>
+      <fieldset class="kind-filters" id="kindFilters">
+        <legend>Kind</legend>
+        <button type="button" data-kind="all" class="active">All 55</button>
+        <button type="button" data-kind="story">Story</button>
+        <button type="button" data-kind="missable">Missable</button>
+        <button type="button" data-kind="collectibles">Collectibles</button>
+        <button type="button" data-kind="activities">Activities</button>
+        <button type="button" data-kind="online">Online</button>
+      </fieldset>
+      <label class="grade-filter">Grade
+        <select id="gradeFilter">
+          <option value="all">All grades</option>
+          <option value="platinum">Platinum</option>
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="bronze">Bronze</option>
+        </select>
+      </label>
+      <label class="toggle"><input id="hideEarned" type="checkbox"> Hide earned</label>
+      <label class="toggle"><input id="spoilerToggle" type="checkbox" checked> Hide story spoilers</label>
+    </div>
+    <p class="controls-note" id="filterNote"></p>
+    <div class="tracker-actions">
+      <button id="exportBtn" type="button">Export progress</button>
+      <label class="import-btn">Import progress <input id="importFile" type="file" accept="application/json,.json"></label>
+      <button id="resetBtn" type="button">Reset progress</button>
+      <span class="saved-note" id="savedNote">Progress saves in this browser automatically.</span>
+    </div>
+    <div class="empty-note" id="emptyNote" hidden></div>
+    <ol class="trophy-list" id="trophyList"></ol>
+    <p class="list-count" id="listCount"></p>
+  </section>
+
+  <section class="about">
+    <h2>About this guide</h2>
+    <p>Official trophy names, descriptions and grades are shown as PlayStation publishes them. Every guide is written for this entry, in our own words, and cites the guide or list each fact comes from — a cited guide beats an uncited one, however detailed. The game has no online trophies: all 55 are single-player. This guide works fully offline and fetches nothing over the network.</p>
+    <p class="sources-note">Sources: Planet GTA 6, OutputLag, Radio Times, GTA Vice City Hub, CryptoGames and eGamers — linked beside each trophy's guide.</p>
+  </section>
+</main>
+<footer>
+  <p>An unofficial fan guide. Grand Theft Auto and GTA are trademarks of Take-Two Interactive; this guide is not affiliated with or endorsed by Rockstar Games.</p>
+</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>
